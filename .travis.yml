@@ -1,0 +1,13 @@
+language: python
+python: 3.7
+install:
+- pip install pipenv
+- pipenv install pytest --dev
+- pipenv run python setup.py install
+- pipenv run python -m pytest
+script: python -m pytest
+deploy:
+  provider: pypi
+  user: BTaskaya
+  password:
+    secure: L2ILyBqCbWCh/0mGjIvj+gLdjFGwGWdswW9xiuzXbfbgctB/xPhrYcjH2sBvOkNuP01GYkbLJLbhVCUtpa08d0t5MYORqfKYm8hGt9T0Ncz1j1nx+U1GOrxzll7kI3Imfk5l68liK5ti8S9+PElMWT7AM/x+KDmD9vyKPDprNK5xKqyRy41KbYLpaSxIXdRQ+TFsjEgGnSeMXuaK8IKiWC1AfPdubOJxCj8qdm/KlHG+ZpNuzdW/kNhp7siON+MksLrZWtlzlTYap1OS4lBf0dbt4atUT2wim2iJzfj5objsxFD5guz3svB5K5YKTwzX0egl3grppVIAy7XmVGM+p+op+mCJ11FjjJYVqMbq4gdXGT0O+KGqTUwHtRKTVifCMbHp7HQwuGRvhCcD1kgIg6BzQnRmSphl/0BTSumLTVp6vBvLAS3uhY+9hj5DFv4Dx2z1JCjXwoXE5g0JFa5LjcDVhuaqyQsCkgGU0tk0xgz+7nYqm8d+A2mSpakbKmAPjW/JvNEST19fun1bM4lSKIiMicCSZl89ywxrW8ejy6CVeWo9a1VZrtaTRQ7xKJIRsoG0BileivoNS0D1TjEm9iWjINIdABGgzOdr96NL0xsyXQWxvO1KMLyonoPDH9snWtXLYWbjBgmYogafhzOMuvOLSAyWd0aHgVYx8SvTQCY=

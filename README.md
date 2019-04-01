@@ -33,3 +33,12 @@ add([3], 2)
 with pytest.raises(TypeError):
     add(1, 2)
 ```
+### Transforming Return Type
+```py
+from typity.transform import transform
+@transform
+def add(x, y) -> str:
+    return x + y
+
+assert type(add(3, 2)) is str
+```

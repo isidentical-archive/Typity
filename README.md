@@ -17,6 +17,19 @@ assert (
 ### Basic Resolving
 [![asciicast](https://asciinema.org/a/b6H1dpgRzHyKKpgdUFN46sz7a.svg)](https://asciinema.org/a/b6H1dpgRzHyKKpgdUFN46sz7a)
 ```py
-from typity.resolve import resolve
+from typity.resolver import Resolver
+r = Resolver()
 assert r.dispatch(typing.Union[typing.List[int], typing.Tuple[str]], [15, 30])
+```
+
+### Verifiying Types at Runtime
+```py
+from typity.verify import verify
+@verify
+def add(x: typing.List[int], y: int) -> int:
+    pass
+
+add([3], 2)
+with pytest.raises(TypeError):
+    add(1, 2)
 ```

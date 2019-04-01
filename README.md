@@ -11,3 +11,8 @@ assert (
     is typing.Dict[str, typing.Union[bytes, typing.List[typing.Union[str, int]]]]
 )
 ```
+### Basic Resolving
+```py
+from typity.resolve import resolve
+assert r.dispatch(typing.Union[typing.List[int], typing.Tuple[str]], [15, 30])
+```

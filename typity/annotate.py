@@ -18,6 +18,10 @@ class Builtin(ABC):
 class Collections(ABC):
     def __subclasscheck__(cls):
         return cls.__module__ == "collections"
+    
+class Typing(ABC):
+    def __subclasscheck__(cls):
+        return cls.__module__ == "typing"
 
 
 def build_union(of):
@@ -59,8 +63,8 @@ def annotate(item):
                 return typ[build_union(map(annotate, item))]
             else:
                 return typ.__getitem__(tuple(map(annotate, item)))
+                
     elif isinstance(item, FunctionType):
-
         @wraps(item)
         def wrapper(*args, **kwargs):
             argset = list(args)
